@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { generateIconFile } from './generate'
+import { generateIconFile, generateInstanceFile } from './generate'
 import { parseSvgFileAsTree } from './parse'
 
 type T = () => Promise<void>
@@ -27,7 +27,8 @@ export const parseInputDir = () => {
       await Promise.allSettled(generations.map(async (foo) => foo())).then(
         (results) => results.forEach((result) => console.log(result.status)),
       )
-      console.log('end')
+      await generateInstanceFile()
+      console.log('END!')
     }
   })
 }
