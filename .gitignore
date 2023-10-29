@@ -1,5 +1,5 @@
 # lib bundle
-lib
+/lib
 # icons output
 output
 # coverage
