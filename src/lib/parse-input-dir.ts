@@ -18,7 +18,7 @@ export const parseInputDir = () => {
           const gen = async () => {
             const tree = await parseSvgFileAsTree(path.join(inputDir, file))
             if (tree) {
-              generateIconFile(tree, file)
+              await generateIconFile(tree, file)
             }
           }
           generations.push(gen)
