@@ -4,6 +4,7 @@ import fs from 'fs'
 import { path as rootPath } from 'app-root-path'
 
 import { SvgTree } from '~/types'
+import { logger } from '~/util'
 
 import { pascalCase } from '../util'
 
@@ -19,14 +20,17 @@ export const generateIconFile = async (
     const outputDir = path.join(rootPath, 'output', name + '.js')
     const template = createJsxIconTemplate({ iconName: name, elements: tree })
 
-    fs.writeFile(outputDir, Buffer.from(template), (err) => {
-      if (err) {
-        console.log(err)
-        reject(err.message)
-      } else {
-        console.log('File written successfully: ', name)
-        resolve(name)
+    fs.writeFile(outputDir, Buffer.from(template), (error) => {
+      if (error) {
+        return reject(
+          logger.error(
+            'ERROR OCCURRED WRITING ICON: %s on file %s',
+            error.message,
+            name,
+          ),
+        )
       }
+      return resolve(name)
     })
   })
 }

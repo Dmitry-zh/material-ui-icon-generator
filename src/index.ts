@@ -1,3 +1,3 @@
-import { parseInputDir } from './lib/parse-input-dir'
+import { parseInputDir } from '~/core/parse-input-dir'
 
 parseInputDir()

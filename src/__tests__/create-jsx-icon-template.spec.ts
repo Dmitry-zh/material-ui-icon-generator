@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { createJsxIconTemplate } from '../lib/generate/create-jsx-icon-template'
+import { createJsxIconTemplate } from '~/core/generate/create-jsx-icon-template'
+
 import { SvgTree } from '../types'
 
 import { sunTree } from './fixtures/sun-tree'
