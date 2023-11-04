@@ -1,9 +1,11 @@
 import path from 'path'
 import fs from 'fs'
 
+import { path as rootPath } from 'app-root-path'
+
 export const generateInstanceFile = async () => {
   let fileContent = ''
-  const outputDir = path.join(__dirname, '..', '..', '..', 'output')
+  const outputDir = path.join(rootPath, 'output')
 
   await new Promise((resolve, reject) => {
     fs.readdir(outputDir, async (err, files) => {
