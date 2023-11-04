@@ -6,11 +6,15 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [tsconfigPaths()],
   build: {
+    rollupOptions: {
+      external: ['react', 'react/jsx-runtime'],
+      output: {
+        entryFileNames: '[name].js',
+      },
+    },
     lib: {
       entry: resolve(__dirname, 'output/index.js'),
-      // TODO: from envs
-      name: 'material-ui-my-icons',
-      formats: ['umd'],
+      formats: ['es'],
     },
     outDir: 'lib',
   },
