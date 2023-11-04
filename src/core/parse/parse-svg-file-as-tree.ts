@@ -4,6 +4,7 @@ import { parse as parseAsHtml } from 'node-html-parser'
 
 import { ParsedHtml, SvgTree } from '~/types'
 import { SvgTreeObject } from '~/models'
+import { logger } from '~/util'
 
 const getInputSvgTree = (el: ParsedHtml, depth = 0): SvgTreeObject => {
   const leaf = new SvgTreeObject(el)
@@ -34,13 +35,16 @@ export const parseSvgFileAsTree = async (
   pathToSvg: string,
 ): Promise<SvgTree['children'] | undefined> => {
   try {
-    console.log(pathToSvg)
     const svgFile = fs.readFileSync(pathToSvg, { encoding: 'utf-8' })
     const svgHtml = parseAsHtml(svgFile)
     const svgObject = getInputSvgTree(svgHtml)
 
     return findSvgChildren(svgObject)
-  } catch (err: any) {
-    console.log('ERR OCCUR', err.message)
+  } catch (error) {
+    logger.error(
+      'PARSING SVG ERROR OCCURRED %s on file %s',
+      (error as Error).message,
+      pathToSvg,
+    )
   }
 }

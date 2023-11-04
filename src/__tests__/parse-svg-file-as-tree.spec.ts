@@ -2,7 +2,7 @@ import path from 'path'
 
 import { describe, expect, it } from 'vitest'
 
-import { parseSvgFileAsTree } from '../lib/parse'
+import { parseSvgFileAsTree } from '~/core/parse'
 
 describe('parseSvg lib test', () => {
   it('should generate correct template', async () => {
