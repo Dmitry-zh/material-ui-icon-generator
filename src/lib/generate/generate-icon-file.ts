@@ -1,7 +1,8 @@
 import path from 'path'
 import fs from 'fs'
 
-import { SvgTree } from '../../types'
+import { SvgTree } from '~/types'
+
 import { pascalCase } from '../util'
 
 import { createJsxIconTemplate } from './create-jsx-icon-template'
