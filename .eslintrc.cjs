@@ -36,6 +36,14 @@ module.exports = {
     'import/order': [
       2,
       {
+        pathGroups: [
+          '~',
+        ].map(
+            (layer) => ({
+              pattern: `**/?(*)${layer}{,/**}`,
+              group: 'internal',
+            }),
+        ),
         pathGroupsExcludedImportTypes: ['builtin'],
         groups: [
           'builtin',

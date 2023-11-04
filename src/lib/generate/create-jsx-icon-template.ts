@@ -1,4 +1,4 @@
-import { SvgTree } from '../../types'
+import { SvgTree } from '~/types'
 
 interface CreateJsxIconTemplateParams {
   iconName: string
@@ -11,7 +11,7 @@ export const createJsxIconTemplate = ({
 }: CreateJsxIconTemplateParams): string => {
   return `
 import {jsx} from 'react/jsx-runtime'
-import {createSvgIcon} from '@mui/material'
+import createSvgIcon from '@mui/material/utils/createSvgIcon'
 
 export default createSvgIcon([
 ${elements.map(

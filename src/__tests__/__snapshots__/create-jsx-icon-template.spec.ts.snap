@@ -3,7 +3,7 @@
 exports[`generate lib tests > should generate correct template 1`] = `
 "
 import {jsx} from 'react/jsx-runtime'
-import {createSvgIcon} from '@mui/material'
+import createSvgIcon from '@mui/material/utils/createSvgIcon'
 
 export default createSvgIcon([
 

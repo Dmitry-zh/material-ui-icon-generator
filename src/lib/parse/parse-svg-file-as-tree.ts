@@ -2,8 +2,8 @@ import fs from 'fs'
 
 import { parse as parseAsHtml } from 'node-html-parser'
 
-import { ParsedHtml, SvgTree } from '../../types'
-import { SvgTreeObject } from '../../models'
+import { ParsedHtml, SvgTree } from '~/types'
+import { SvgTreeObject } from '~/models'
 
 const getInputSvgTree = (el: ParsedHtml, depth = 0): SvgTreeObject => {
   const leaf = new SvgTreeObject(el)

@@ -1,6 +1,6 @@
 import { HTMLElement } from 'node-html-parser'
 
-import { SvgTree, ParsedHtml, WithRawTagName } from '../types'
+import { SvgTree, ParsedHtml, WithRawTagName } from '~/types'
 
 export class SvgTreeObject implements SvgTree {
   constructor(el: ParsedHtml) {
