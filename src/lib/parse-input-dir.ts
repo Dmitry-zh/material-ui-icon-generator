@@ -1,13 +1,15 @@
 import fs from 'fs'
 import path from 'path'
 
+import { path as rootPath } from 'app-root-path'
+
 import { generateIconFile, generateInstanceFile } from './generate'
 import { parseSvgFileAsTree } from './parse'
 
 type T = () => Promise<void>
 
 export const parseInputDir = () => {
-  const inputDir = path.join(__dirname, '..', '..', 'input')
+  const inputDir = path.join(rootPath, 'input')
 
   fs.readdir(inputDir, async (err, files) => {
     if (err) console.log(err)
