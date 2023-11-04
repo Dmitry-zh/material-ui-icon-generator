@@ -1,10 +1,9 @@
 import path from 'path'
 import fs from 'fs'
 
-import { path as rootPath } from 'app-root-path'
-
 import { SvgTree } from '~/types'
 import { logger } from '~/util'
+import { OUT_DIR } from '~/constants'
 
 import { pascalCase } from '../util'
 
@@ -17,7 +16,7 @@ export const generateIconFile = async (
   return new Promise((resolve, reject) => {
     const name = pascalCase(path.parse(iconFileName).name)
 
-    const outputDir = path.join(rootPath, 'output', name + '.js')
+    const outputDir = path.join(OUT_DIR, name + '.js')
     const template = createJsxIconTemplate({ iconName: name, elements: tree })
 
     fs.writeFile(outputDir, Buffer.from(template), (error) => {

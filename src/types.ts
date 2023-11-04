@@ -12,3 +12,5 @@ export type SvgTree = {
   attributes: HTMLAttributes<SVGElement> | null
   children: SvgTree[]
 }
+
+export type GenCallback = () => Promise<string | undefined>

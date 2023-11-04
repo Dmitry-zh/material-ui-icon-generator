@@ -1,14 +1,13 @@
 import path from 'path'
 import fs from 'fs'
 
-import { path as rootPath } from 'app-root-path'
+import { OUT_DIR } from '~/constants'
 
 export const generateInstanceFile = async () => {
   let fileContent = ''
-  const outputDir = path.join(rootPath, 'output')
 
   await new Promise((resolve, reject) => {
-    fs.readdir(outputDir, async (err, files) => {
+    fs.readdir(OUT_DIR, async (err, files) => {
       if (err) reject(err.message)
 
       files.forEach((file, index) => {
@@ -23,7 +22,7 @@ export const generateInstanceFile = async () => {
   })
 
   return fs.writeFileSync(
-    path.join(outputDir, 'index.js'),
+    path.join(OUT_DIR, 'index.js'),
     Buffer.from(fileContent),
   )
 }
