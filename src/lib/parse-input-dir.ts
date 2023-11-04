@@ -3,7 +3,11 @@ import path from 'path'
 
 import { path as rootPath } from 'app-root-path'
 
-import { generateIconFile, generateInstanceFile } from './generate'
+import {
+  generateIconFile,
+  generateInstanceFile,
+  processOutputDir,
+} from './generate'
 import { parseSvgFileAsTree } from './parse'
 
 type T = () => Promise<void>
@@ -14,6 +18,7 @@ export const parseInputDir = () => {
   fs.readdir(inputDir, async (err, files) => {
     if (err) console.log(err)
     else {
+      await processOutputDir()
       const generations: T[] = []
       files.forEach((file) => {
         if (path.extname(file) == '.svg') {
