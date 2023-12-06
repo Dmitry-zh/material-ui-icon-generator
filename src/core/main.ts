@@ -8,6 +8,7 @@ import { GenCallback } from '~/types'
 import {
   generateIconFile,
   generateInstanceFile,
+  generateTypes,
   processOutputDir,
 } from './generate'
 import { parseSvgFileAsTree } from './parse'
@@ -55,6 +56,7 @@ export const main = () => {
         },
       )
       await generateInstanceFile()
+      await generateTypes()
       resolve(logger.info('GENERATION COMPLETED'))
     })
   })
